@@ -24,5 +24,6 @@ $rules['increment_style'] = ['style' => 'post'];
 
 return (new PhpCsFixer\Config())
     ->setUsingCache(true)
+    ->setIndent('  ')
     ->setRules($rules)
     ->setFinder($finder);

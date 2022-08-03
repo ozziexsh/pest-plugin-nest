@@ -2,17 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Pest\PluginName;
+namespace Ozzie\Nest;
 
-use Pest\Plugin;
-use PHPUnit\Framework\TestCase;
+use Closure;
 
-Plugin::uses(Example::class);
+function describe(string $description, Closure $callback)
+{
+  Nest::describe($description, $callback);
+}
+
+function when(string $description, Closure $callback)
+{
+  Nest::when($description, $callback);
+}
 
 /**
- * @return TestCase
+ * @return mixed|\Pest\PendingObjects\TestCall|\Pest\Support\HigherOrderTapProxy|\PHPUnit\Framework\TestCase
  */
-function example(string $argument)
+function itt(string $description, ?Closure $callback = null)
 {
-    return test()->example(...func_get_args());
+  return Nest::it($description, $callback);
+}
+
+/**
+ * @return mixed|\Pest\PendingObjects\TestCall|\Pest\Support\HigherOrderTapProxy|\PHPUnit\Framework\TestCase
+ */
+function testt(string $description, ?Closure $callback = null)
+{
+  return Nest::test($description, $callback);
 }
