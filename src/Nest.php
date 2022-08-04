@@ -8,7 +8,7 @@ class Nest
 {
   public static array $prefixes = [];
 
-  public static function describe($description, $callback)
+  public static function describe(string $description, Closure $callback)
   {
     static::$prefixes[] = $description;
 
@@ -17,27 +17,33 @@ class Nest
     array_pop(static::$prefixes);
   }
 
-  public static function when($description, $callback)
+  public static function when(string $description, Closure $callback)
   {
     static::describe("when $description", $callback);
   }
 
-  public static function it(?string $description = null, ?Closure $callback = null)
-  {
+  public static function it(
+    ?string $description = null,
+    ?Closure $callback = null
+  ) {
     $testName = implode(' - ', [...static::$prefixes, "it $description"]);
 
     return static::nativePestTest($testName, $callback);
   }
 
-  public static function test(?string $description = null, ?Closure $callback = null)
-  {
+  public static function test(
+    ?string $description = null,
+    ?Closure $callback = null
+  ) {
     $testName = implode(' - ', [...static::$prefixes, $description]);
 
     return static::nativePestTest($testName, $callback);
   }
 
-  public static function nativePestTest(?string $description = null, ?Closure $callback = null)
-  {
-    return test($description, $callback);
+  public static function nativePestTest(
+    ?string $description = null,
+    ?Closure $callback = null
+  ) {
+    return \test($description, $callback);
   }
 }
