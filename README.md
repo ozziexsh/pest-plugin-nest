@@ -4,8 +4,16 @@ Nest is a plugin for [PestPHP](https://pestphp.com/) to allow visual separation 
 
 ## Installation
 
+For pest 2.0 you should make sure you are on ^1.0
+
 ```shell
 composer require ozzie/pest-plugin-nest --dev
+```
+
+For pest 1.0 you should make sure you are on ^0.1
+
+```shell
+composer require ozzie/pest-plugin-nest "^0.1" --dev
 ```
 
 ## Usage
