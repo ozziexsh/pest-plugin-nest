@@ -1,3 +1,8 @@
+> [!WARNING]
+> **DEPRECATED**: Pest has official support for describe blocks now
+> 
+> https://pestphp.com/docs/pest-spicy-summer-release#content-describe-blocks
+
 # Nest - Visually group your Pest tests
 
 Nest is a plugin for [PestPHP](https://pestphp.com/) to allow visual separation in your test files and test output
